@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 The Android Open Source Project
+ * Copyright 2020 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,12 +15,17 @@
  */
 package com.example.androiddevchallenge.ui.theme
 
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Shapes
-import androidx.compose.ui.unit.dp
+import androidx.annotation.DrawableRes
+import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.staticCompositionLocalOf
 
-val shapes = Shapes(
-    small = RoundedCornerShape(4.dp),
-    medium = RoundedCornerShape(16.dp),
-    large = RoundedCornerShape(0.dp)
+@Immutable
+data class Images(
+    @DrawableRes val logo: Int,
+    @DrawableRes val welcomeIllustration: Int,
+    @DrawableRes val loginIllustration: Int
 )
+
+internal val LocalImages = staticCompositionLocalOf<Images> {
+    error("No LocalImages specified")
+}
